@@ -1,0 +1,19 @@
+{
+  "name": "dev-s-mp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jorbreezy/Dev-s-MP.git"
+  },
+  "author": "Dev's-MP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jorbreezy/Dev-s-MP/issues"
+  },
+  "homepage": "https://github.com/Jorbreezy/Dev-s-MP#readme"
+}
