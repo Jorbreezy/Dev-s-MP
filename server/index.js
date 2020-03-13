@@ -13,7 +13,7 @@ app.use('/api', api);
 
 //Main get request
 app.get('/', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, './index.html'));
+    res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 })
 
 app.listen(port, () => console.log(`listening on port ${ port }`));
