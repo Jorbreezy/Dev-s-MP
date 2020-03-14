@@ -2,14 +2,18 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
-
-const api = require('./routes/api');
+const bodyParser = require('body-parser');
+const auth = require('./routes/auth');
+const marketPlace = require('./routes/marketplace');
 
 //USE
 app.use('/dist', express.static(path.join(__dirname, '../build')));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //Define route handlers
-app.use('/api', api);
+app.use('/auth', auth);
+app.use('/marketplace', marketPlace);
 
 //Main get request
 app.get('/', (req, res) => {

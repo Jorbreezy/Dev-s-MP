@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const router = express.Router();
-const db = require("./models/models.js")
+const db = require("../models/model.js")
 //ROUTES
 
 router.get("/getJobs", (req, res, next) => {
