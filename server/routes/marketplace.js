@@ -7,7 +7,8 @@ const db = require("./models/models.js")
 router.get("/getJobs", (req, res, next) => {
   db.query(`
   SELECT * 
-  FROM public.jobs
+  FROM public.jobs as jobs
+  ORDER BY jobs.created_at DESC;
   `, (err, sqlres) => {
     if (err) {
       return next(err);
@@ -38,10 +39,28 @@ router.post("/addJob", (req, res, next) => {
       else {
         return res.status(200).send({"message": "job posted"});
       }
-    })
+    });
   }
 });
 
-
+router.delete("/removeJob", (req, res, next) => {
+  const { post_id } = req.body;
+  if (post_id === undefined || post_id === "") {
+    return next("Invalid post id");
+  }
+  else {
+    db.query(`
+    DELETE FROM public.jobs
+    WHERE public.jobs.post_id = $1
+    `,[post_id], (err, sqlres) => {
+      if (err) {
+        return next(err);
+      }
+      else {
+        return res.status(200).send({"message": `${post_id} removed`});
+      }
+    });
+  }
+});
 
 module.exports = router;
