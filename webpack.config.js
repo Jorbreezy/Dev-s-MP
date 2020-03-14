@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = env => {
   return {
     mode: env.NODE_ENV,
-    entry: "./client/index.js",
+    entry: "./client/App.jsx",
     devServer: {
       host: "localhost",
       port: 8080,
@@ -24,7 +24,7 @@ module.exports = env => {
        * to localhost:3000/api/* (where our Express server is running)
        */
       proxy: {
-        '/(api|assets|dist)/**' : {
+        '/(api|marketplace|auth|assets|dist)/**' : {
           target: "http://localhost:3000/",
           secure: false
         }
