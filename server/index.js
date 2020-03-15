@@ -1,3 +1,5 @@
+const envir = require('dotenv').config();
+const secret = process.env.SECRET;
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
