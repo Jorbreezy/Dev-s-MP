@@ -15,10 +15,10 @@ const controller = {
       if (results.length === 0)
         return res.status(418).json({ message: "this is invalid" });
 
-      let dbPassword = results[0].password;
+      const dbPassword = results[0].password;
       bcrypt.compare(password, dbPassword, (err, bool) => {
         if (bool) {
-          let token = jwt.sign({ authorized: "true" }, secret, {
+          const token = jwt.sign({ authorized: "true" }, secret, {
             algorithm: "HS256",
             expiresIn: 60 * 60 * 12
           }); //expiresIn is in seconds
@@ -26,24 +26,22 @@ const controller = {
             maxAge: 43200000,
             httpOnly: true
           });
-          let usernameJWT = jwt.sign({ username: username }, secret, {
-            algorithm: "HS256",
-            expiresIn: 60 * 60 * 12
-          });
-          res.cookie("username", usernameJWT, {
-            maxAge: 43200000,
-            httpOnly: true
-          });
+          // const usernameJWT = jwt.sign({ username: username }, secret, {
+          //   algorithm: "HS256",
+          //   expiresIn: 60 * 60 * 12
+          // });
+          // res.cookie("username", usernameJWT, {
+          //   maxAge: 43200000,
+          //   httpOnly: true
+          // });
           // res.set({"authorization": token});
-          return res.status(200).json({ message: "you can log in" });
+          return res.status(200).json({ message: "Login Successful" });
         } else {
           return res
             .status(418)
             .json({ message: "this is wrong username/password" });
         }
       });
-
-      next();
     });
   },
   signUp(req, res, next) {
@@ -78,8 +76,6 @@ const controller = {
           });
         });
       }
-
-      next();
     });
   }
 };
