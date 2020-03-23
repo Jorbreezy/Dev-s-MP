@@ -144,7 +144,7 @@ const Bids = props => {
     for (let i = 0; i < props.bidInfo.bids.length; i++) {
       bids.push(
         <li>
-          {props.bidInfo.bids[i].username + ": " + props.bidInfo.bids[i].amount}
+          {`${props.bidInfo.bids[i].username} : $${props.bidInfo.bids[i].amount}`}
         </li>
       );
     }
@@ -154,7 +154,7 @@ const Bids = props => {
     <div className="bid-display">
       <div className='bidBox'>
         <div className="bidItem">
-          <input className="bid-input" id={props.bidInfo.post_id}></input>
+          <input type='number' className="bid-input" id={props.bidInfo.post_id}></input>
         </div>
         <div className="bidItem">
         <button onClick={() => { props.makeBid(props.bidInfo.post_id)}}>
