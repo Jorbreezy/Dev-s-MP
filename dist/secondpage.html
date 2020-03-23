@@ -4,14 +4,91 @@
     <title>Second Page</title>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <style>
+      body{
+        font-size: 1.25rem;
+      }
+
       .market-display {
-        height: 200px;
-        overflow: scroll;
-        width: 70%;
+        width: 40%;
+        margin: 5px;
+        border: 1px solid;
+        padding: 5px;
+        word-wrap: break-word;
       }
       .market-bid {
         display: flex;
-        border-style: solid;
+      }
+
+      .itemBox {
+        width: 40%;
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      input {
+        border-radius: 0.2rem;
+        outline: none;
+        box-sizing: border-box;
+        margin: 8px 0;
+        padding: 10px 10px;
+        font-size: inherit;
+      }
+
+      button {
+        outline: none;
+        border-radius: 0.2rem;
+        text-decoration: none;
+        padding: 10px;
+        border: none;
+        background-color: #0074d9;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .item {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .bid-display {
+        width: 40%;
+        margin: 5px;
+        border: 1px solid;
+        padding: 5px;
+      }
+
+      .bidBox {
+        display: flex;
+        width: 40%;
+        justify-content: space-between;
+        margin: 0;
+      }
+
+      .bidItem:nth-child(2) {
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .market-bid {
+       justify-content: center;
+      }
+
+      .item:nth-child(3) {
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      ol {
+        list-style-type: decimal;
+        width: 600px;
+      }
+
+      li {
+        float: left;
+        width: 200px;
+        padding: 2px 0px;
       }
     </style>
 

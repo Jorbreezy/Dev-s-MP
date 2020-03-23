@@ -53,13 +53,24 @@ class Login extends Component {
   }
   render() {
     return(
-      <div>
-        <span>Username</span>
-        <input id = "username"></input><br/>
-        <span>Password</span>
-        <input id = "password"></input><br/>
-        <button id = "login" onClick = {() => {this.login()}}>Log In</button>
-        <button id = "register" onClick = {() => {this.register()}}>Register</button>
+      <div className="Auth">
+        <h1>Login/Signup</h1>
+        <div className="innerBox">
+          <div className="innerItem">
+            <input id="username" type="text" placeholder="Username"></input>
+          </div>
+          <div className="innerItem">
+            <input id="password" type="password" placeholder="Password"></input>
+          </div>
+        </div>
+        <div className="innerItem">
+          <button className="innerBtn" onClick={() => this.login()}>
+            Login
+          </button>
+          <button className="innerBtn" onClick={() => this.register()}>
+            Signup
+          </button>
+        </div>
       </div>
     )
   }
