@@ -27,6 +27,7 @@ class Marketplace extends Component {
     const marketName = document.getElementById("market-to-add").value;
     const description = document.getElementById("job-description").value;
     document.getElementById("market-to-add").value = "";
+    document.getElementById("job-description").value = "";
     fetch("/addmarket", {
       method: "POST",
       headers: {
@@ -152,17 +153,29 @@ const Bids = props => {
 
   return (
     <div className="bid-display">
-      <div className='bidBox'>
+      <div className="bidBox">
         <div className="bidItem">
-          <input type='number' className="bid-input" id={props.bidInfo.post_id}></input>
+          <input
+            type="number"
+            className="bid-input"
+            id={props.bidInfo.post_id}
+          ></input>
         </div>
         <div className="bidItem">
-        <button onClick={() => { props.makeBid(props.bidInfo.post_id)}}>
+          <button
+            onClick={() => {
+              props.makeBid(props.bidInfo.post_id);
+            }}
+          >
             Submit Bid
           </button>
         </div>
+        <br />
+        <br />
+        <div className="bidItem">
+          <span>Bids: </span>
+        </div>
       </div>
-      <span>Bids: </span>
       <br />
       <ol>{bids}</ol>
     </div>
